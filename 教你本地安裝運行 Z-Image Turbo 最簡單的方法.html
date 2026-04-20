@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>教你本地安裝/運行 Z-Image Turbo 最簡單的方法</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+            line-height: 1.7;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        h1 {
+            color: #228be6;
+            font-size: 26px;
+            border-left: 6px solid #228be6;
+            padding-left: 12px;
+        }
+        h2 {
+            font-size: 20px;
+            margin-top: 30px;
+            color: #495057;
+        }
+        .step {
+            background: white;
+            padding: 18px 22px;
+            border-radius: 10px;
+            margin: 15px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .step-number {
+            font-weight: bold;
+            color: #228be6;
+            font-size: 18px;
+        }
+        code {
+            background: #e9ecef;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: Consolas, "Courier New", monospace;
+        }
+        .warning {
+            color: #dc3545;
+            font-weight: 500;
+        }
+        a {
+            color: #228be6;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+        table td, table th {
+            border: 1px solid #dee2e6;
+            padding: 10px;
+        }
+        table th {
+            background-color: #e9ecef;
+        }
+    </style>
+</head>
+<body>
+    <h1>教你本地安裝/運行 Z-Image Turbo 最簡單的方法</h1>
+
+    <div class="step">
+        <span class="step-number">1. 下載 ComfyUI</span>
+        <p>從 GitHub 下載 ComfyUI v0.18.2 官方版，直接訪問這個鏈接：<br>
+        <a href="https://github.com/Comfy-Org/ComfyUI/releases/tag/v0.18.2" target="_blank">https://github.com/Comfy-Org/ComfyUI/releases/tag/v0.18.2</a></p>
+
+        <table>
+            <tr>
+                <th>下載檔名</th>
+                <th>適用顯示卡</th>
+            </tr>
+            <tr>
+                <td><code>ComfyUI_windows_portable_amd.7z</code></td>
+                <td>AMD 顯示卡</td>
+            </tr>
+            <tr>
+                <td><code>ComfyUI_windows_portable_nvidia.7z</code></td>
+                <td>NVIDIA 顯示卡（20/30/40 系列）</td>
+            </tr>
+            <tr>
+                <td><code>ComfyUI_windows_portable_nvidia_cu126.7z</code></td>
+                <td>NVIDIA 顯示卡（推薦，50 系列）</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="step">
+        <span class="step-number">2. 解壓縮（關鍵：路徑不能有中文 / 空格）</span>
+        <p>路徑範例（正確）：<br>
+        <code>D:\CUI</code></p>
+        <p class="warning">❌ 錯誤範例：<code>D:\CUI\繪圖軟體\ComfyUI</code>（包含中文會導致啟動失敗）</p>
+    </div>
+
+    <div class="step">
+        <span class="step-number">3. 下載 Z-Image Turbo 模型</span>
+        <p>請到 ComfyUI 說明頁面下載：<br>
+        <a href="https://docs.comfy.org/tutorials/image/z-image/z-image-turbo" target="_blank">https://docs.comfy.org/tutorials/image/z-image/z-image-turbo</a></p>
+        <p>下載後將 <code>.safetensors</code> 模型檔放到對應資料夾：<br>
+<p>📂 ComfyUI/<br>
+├── 📂 models/<br>
+│　　├── 📂 text_encoders/<br>
+│　　│　　　└── qwen_3_4b.safetensors<br>
+│　　├── 📂 diffusion_models/<br>
+│　　│　　　└── z_image_turbo_bf16.safetensors<br>
+│　　└── 📂 vae/<br>
+│　　　　　　└── ae.safetensors<br>
+</p>
+    </div>
+
+    <div class="step">
+        <span class="step-number">4. 啟動 ComfyUI</span>
+        <p>進入解壓縮目錄：</p>
+        <ul>
+            <li>NVIDIA 顯示卡：雙擊 <code>run_nvidia_gpu.bat</code></li>
+            <li>CPU 模式：雙擊 <code>run_cpu.bat</code>（不建議，速度極慢）</li>
+        </ul>
+        <p>首次啟動：<br>
+        會彈出黑框（命令列），自動下載依賴（約 1–3 分鐘）<br>
+        完成後瀏覽器自動開啟：<a href="http://127.0.0.1:8188" target="_blank">http://127.0.0.1:8188</a></p>
+        <p>進入後點擊「模版」→ 選擇「文生圖」即可開始使用 Z-Image Turbo。</p>
+<p>下 Prompt  (可中英文)，然後 "執行" </p>
+<p>例如 Prompt：  18歲女學生成群結隊去買鹹酥雞，攤位名稱"老張鹹酥雞"，內容字體必須是繁體中文。</p>
+    </div>
+</body>
+</html>
